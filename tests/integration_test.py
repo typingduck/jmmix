@@ -42,12 +42,6 @@ class JimmxE2ETest(unittest.TestCase):
         beans = self.make_json_request()
 
         self.assertIn('java_lang_MemoryPool_PeakUsage_init', beans.keys())
-        bean = beans['java_lang_MemoryPool_PeakUsage_init']
-        self.assertBeanEquals(bean,
-                        'java_lang_MemoryPool_PeakUsage_init',
-                        'java.lang.management.MemoryUsage',
-                        {'nom': 'PS Survivor Space'})
-        self.assertTrue(self.beanValue(bean) > 0, bean)
 
     def test_cassandra_bean(self):
         beans = self.make_json_request()
@@ -83,14 +77,6 @@ class JimmxE2ETest(unittest.TestCase):
     def test_tabular_bean(self):
         beans = self.make_json_request()
         self.assertIn('java_lang_GarbageCollector_LastGcInfo_memoryUsageAfterGc_committed', beans.keys())
-        bean = beans['java_lang_GarbageCollector_LastGcInfo_memoryUsageAfterGc_committed']
-        bean = beans['java_lang_GarbageCollector_LastGcInfo_memoryUsageAfterGc_committed']
-        self.assertBeanEquals(bean,
-                        'java_lang_GarbageCollector_LastGcInfo_memoryUsageAfterGc_committed',
-                        'java.lang.management.MemoryUsage',
-                        {'key': 'PS Survivor Space', 'nom': 'PS Scavenge'}
-                        )
-        self.assertTrue(self.beanValue(bean) > 0)
 
     def test_error_message(self):
         f = urllib.urlopen('http://localhost:5556?target=localhost:10101')
