@@ -1,6 +1,12 @@
 jmmix
 =====
 
+# OBSOLETE:
+
+Moved to: https://github.com/prometheus/jmx_for_prometheus.
+
+# About
+
 JMX to prometheus bridge.
 
 A webserver that exposes mBeans of a JMX target in JSON format suitable
